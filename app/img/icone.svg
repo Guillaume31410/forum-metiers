@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Icône du logiciel Forum des métiers : panneau d'orientation -->
+  <rect width="32" height="32" rx="7" fill="#16302e"/>
+  <rect x="14.8" y="5" width="2.4" height="23" rx="1" fill="#e4eeed"/>
+  <path d="M7 7h14l4 3.5-4 3.5H7z" fill="#2bb3a3"/>
+  <path d="M25 16H11l-4 3.5 4 3.5h14z" fill="#f3c77b"/>
+</svg>

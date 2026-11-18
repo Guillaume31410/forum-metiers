@@ -1,0 +1,50 @@
+/* =====================================================================
+   impression.css — mise en page A4 des documents imprimés
+   (le format de page est choisi au moment d'imprimer, voir impression.js)
+   ===================================================================== */
+@media print {
+  body.mode-impression { background: #fff; }
+  body.mode-impression #appli, body.mode-impression #fenetre, body.mode-impression #toast { display: none !important; }
+  body.mode-impression #impression { display: block; color: #000; font-family: 'Segoe UI', Arial, sans-serif; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Convocations : 4 par feuille A4 */
+  .feuille-convoc { width: 210mm; height: 296mm; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; break-after: page; overflow: hidden; }
+  .feuille-convoc:last-child { break-after: auto; }
+  .convoc { padding: 9mm 8mm; border-right: 1px dashed #999; border-bottom: 1px dashed #999; overflow: hidden; }
+  .convoc:nth-child(2n) { border-right: 0; }
+  .convoc:nth-child(n+3) { border-bottom: 0; }
+  .convoc-forum { font-size: 9pt; color: #444; margin: 0 0 2mm; }
+  .convoc h2 { font-size: 14pt; margin: 0 0 4mm; }
+  .convoc table { width: 100%; border-collapse: collapse; font-size: 10.5pt; }
+  .convoc td { padding: 1.6mm 1mm; border-bottom: 1px solid #ccc; vertical-align: top; }
+  .convoc td.h { white-space: nowrap; width: 27mm; font-weight: 600; }
+  .convoc td.s { text-align: right; width: 30mm; white-space: nowrap; }
+  .convoc td.s small { font-size: 7.5pt; color: #555; white-space: normal; display: inline-block; line-height: 1.15; }
+
+  /* Listes d'émargement : une page par intervenant */
+  .page-liste { break-after: page; }
+  .page-liste:last-child, .page-classe:last-child { break-after: auto; }
+  .liste-forum { font-size: 9pt; color: #444; margin: 0 0 1mm; }
+  .page-liste h2 { font-size: 15pt; margin: 0; }
+  .liste-sous { font-size: 10.5pt; margin: 0.5mm 0 3mm; }
+  .page-liste .liste-creneaux { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 6mm; }
+  .bloc-creneau { break-inside: avoid; }
+  .bloc-creneau h3 { font-size: 9.5pt; margin: 0 0 0.6mm; }
+  .bloc-creneau h3 span { font-weight: normal; color: #444; }
+  .bloc-creneau.absent p { font-size: 9pt; color: #666; border: 1px dashed #aaa; padding: 2mm; margin: 0; }
+  .bloc-creneau table { width: 100%; border-collapse: collapse; font-size: 8pt; }
+  .bloc-creneau th { text-align: left; border-bottom: 1px solid #000; padding: 0.3mm 1mm; font-size: 7.5pt; }
+  .bloc-creneau td { border-bottom: 1px solid #bbb; padding: 0 1mm; height: 4.7mm; line-height: 1; white-space: nowrap; overflow: hidden; max-width: 30mm; }
+  .bloc-creneau .em { width: 26mm; border-left: 1px solid #bbb; }
+
+  /* Planning par classe (paysage) */
+  .page-classe { break-after: page; }
+  .page-classe h2 { font-size: 13pt; margin: 0 0 2mm; }
+  .page-classe table { width: 100%; border-collapse: collapse; font-size: 7pt; table-layout: fixed; line-height: 1.08; }
+  .page-classe th, .page-classe td { border: 1px solid #999; padding: 0.1mm 0.8mm; vertical-align: top; overflow: hidden; }
+  .page-classe th { background: #eee; font-size: 7.5pt; }
+  .page-classe td.nom, .page-classe th:first-child { width: 36mm; font-weight: 600; font-size: 7.5pt; white-space: nowrap; text-overflow: ellipsis; }
+  .page-classe td div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .page-classe td span { color: #444; }
+}

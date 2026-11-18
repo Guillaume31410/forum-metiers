@@ -1,0 +1,6 @@
+﻿Ce dossier contient les données du forum :
+  - forum.json : le forum en cours (créé quand le logiciel est relié au dossier ForumMetiers, avec Edge ou Chrome) ;
+  - sauvegardes/ : une copie de l'ancienne version à chaque séance de travail ;
+  - exemple/ : des fichiers fictifs pour s'entraîner aux imports.
+
+Ces données contiennent des noms d'élèves : ne les partagez pas, et supprimez forum.json et sauvegardes/ une fois le forum terminé.

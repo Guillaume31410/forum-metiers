@@ -1,0 +1,160 @@
+﻿FORUM DES MÉTIERS — MODE D'EMPLOI
+=================================
+
+Ce logiciel répartit automatiquement les élèves de 4e dans les ateliers du forum
+des métiers à partir de leurs vœux, puis imprime les convocations, les listes
+d'émargement et les plannings.
+
+Il ne s'installe pas, fonctionne sans Internet, et rien ne quitte l'ordinateur.
+
+Manuel complet avec captures d'écran :
+   documentation/Manuel_utilisateur_Forum_des_metiers.pdf
+
+
+1. OUVRIR LE LOGICIEL
+---------------------
+Double-cliquez sur le fichier index.html (dans ce dossier ForumMetiers).
+Il s'ouvre dans le navigateur : de préférence Edge ou Chrome (récents).
+Firefox fonctionne aussi, voir le paragraphe 3.
+
+Le dossier peut être copié sur une clé USB ou un espace de stockage :
+gardez simplement tout son contenu ensemble.
+
+   ForumMetiers/
+   ├── index.html      ← double-clic ici
+   ├── LISEZMOI.txt    ← ce mode d'emploi
+   ├── documentation/  ← manuel utilisateur complet illustré (PDF)
+   ├── app/            ← le programme (ne pas modifier)
+   ├── donnees/        ← vos données (forum.json) et des fichiers d'exemple
+   └── exports/        ← les fichiers produits par le logiciel
+
+
+2. ESSAYER AVEC DES DONNÉES D'EXEMPLE
+-------------------------------------
+Sur l'écran d'accueil, cliquez sur « Charger des données d'exemple ».
+Ces données sont entièrement inventées (210 élèves, 24 intervenants).
+Vous pouvez aussi tester les imports avec les fichiers du dossier
+donnees/exemple/ :
+   - eleves_exemple_pronote.csv      (liste d'élèves façon Pronote)
+   - intervenants_exemple.xlsx       (liste des intervenants)
+   - voeux_remplis/voeux_4eA.xlsx…   (vœux déjà saisis, une classe par fichier)
+Pensez ensuite à cliquer sur « Commencer un nouveau forum » (en bas de
+l'accueil) avant de saisir vos vraies données.
+
+
+3. ENREGISTRER SON TRAVAIL
+--------------------------
+Avec Edge ou Chrome :
+   La première fois, cliquez sur « Choisir le dossier ForumMetiers » (accueil)
+   ou sur « Enregistrer » (en bas du menu), puis sélectionnez le dossier
+   ForumMetiers lui-même et acceptez l'autorisation.
+   Ensuite, chaque modification est enregistrée automatiquement dans
+   donnees/forum.json. À l'ouverture suivante, cliquez sur
+   « Reprendre le forum enregistré ».
+   Une copie de l'ancienne version est gardée dans donnees/sauvegardes/
+   à chaque séance.
+
+Avec Firefox (ou en secours) :
+   Cliquez sur « Exporter » (en bas du menu) : un fichier forum_….json est
+   téléchargé. Rangez-le dans ForumMetiers/donnees. Pour reprendre, cliquez
+   sur « Importer » et choisissez ce fichier.
+
+Le navigateur garde aussi une copie de secours, mais elle peut être effacée :
+ne comptez pas uniquement sur elle.
+
+
+ANNULER UNE ACTION : bouton « Annuler » en bas du menu (ou Ctrl+Z), jusqu'aux
+40 dernières actions. « Rétablir » (ou Ctrl+Y) refait une action annulée.
+
+
+4. LES ÉTAPES (menu de gauche, dans l'ordre)
+--------------------------------------------
+1. Paramètres
+   Durée d'un créneau, battement (temps de déplacement), sessions horaires,
+   taille de groupe par défaut, nombre de vœux. Les créneaux sont calculés
+   automatiquement. Si du temps reste inutilisé, le logiciel le signale et
+   propose un réglage qui tombe juste (bouton « Appliquer »).
+
+2. Intervenants
+   Cliquez sur « Télécharger le modèle Excel », remplissez-le (une ligne par
+   intervenant, un « x » dans chaque créneau où il est présent), puis
+   « Importer l'Excel des intervenants ». Le numéro d'atelier est celui que
+   les professeurs utiliseront pour les vœux. Tout reste modifiable dans le
+   tableau. Le « contrôle de faisabilité » vérifie qu'il y a assez de places
+   à chaque créneau.
+
+3. Salles et ateliers
+   Créez les salles : nom ou numéro, thème facultatif (la salle 311 avec le
+   thème « Santé » s'affiche « 311 - Santé ») et nombre maximal d'ateliers
+   (valeur par défaut des paramètres si vide). Placez-y les ateliers : une
+   salle complète ne peut plus être choisie.
+
+4. Élèves
+   Dans Pronote, exportez la liste des élèves (nom, prénom, classe) en CSV ou
+   en Excel, puis « Importer la liste des élèves ». Vérifiez l'association
+   des colonnes et l'aperçu, puis validez. Seuls le nom, le prénom et la
+   classe sont conservés.
+
+5. Vœux
+   Téléchargez un modèle Excel par classe (les élèves sont déjà inscrits, une
+   liste déroulante propose les ateliers, ex. « 3 - Plombier » ; taper
+   seulement le numéro marche aussi). Le professeur saisit les
+   vœux à partir des fiches papier et vous rend le fichier. Importez les
+   fichiers remplis (plusieurs à la fois si vous voulez). Le logiciel signale
+   les numéros inexistants, les doublons, les élèves inconnus et les élèves
+   sans vœu. Les vœux se corrigent aussi à la main (« Voir / modifier »).
+
+6. Répartition
+   Cliquez sur « Lancer la répartition ». Le logiciel tire au sort un ordre
+   de passage, puis sert les élèves à tour de rôle en serpentin (personne
+   n'est toujours servi en dernier), en mélangeant au mieux les classes.
+   Quand les vœux sont épuisés, il complète avec des ateliers « découverte ».
+   Les résultats s'affichent : % de vœux 1 obtenus, moyenne par classe,
+   élèves sans aucun vœu obtenu…
+   Le numéro de tirage permet de refaire exactement la même répartition.
+
+7. Planning
+   Grille des ateliers (lignes) et des créneaux (colonnes). Cliquez sur une
+   case pour voir les élèves de cet atelier à ce créneau, puis :
+     - « Déplacer » un élève vers un autre atelier du même créneau ;
+     - « Échanger » deux élèves ;
+     - verrouiller / déverrouiller (icône cadenas).
+   Le logiciel refuse les déplacements impossibles (atelier plein,
+   intervenant déjà vu, intervenant absent).
+   Recherchez un élève (en haut) pour voir son emploi du temps.
+
+   Verrouillage : une correction faite à la main est verrouillée
+   automatiquement. Une nouvelle répartition ne change que ce qui n'est pas
+   verrouillé. Exemple en cas de désistement d'un intervenant la veille :
+   « Tout verrouiller », décocher ses créneaux dans « Intervenants », puis
+   relancer la répartition : seuls ses élèves sont replacés.
+
+8. Impressions et exports
+   - Convocations élèves : 4 par feuille A4, à découper, classe par classe.
+   - Listes par intervenant : une page par intervenant, avec émargement.
+   - Planning par classe : une page par classe (pour les professeurs).
+   - Classeur Excel récapitulatif et export CSV.
+   L'impression passe par le navigateur : choisissez « Enregistrer au format
+   PDF » comme imprimante pour obtenir un PDF. Dans les options, laissez
+   « Marges : par défaut » et cochez « Graphiques d'arrière-plan ».
+   Le contact des intervenants n'apparaît jamais sur les documents élèves.
+
+
+5. DONNÉES PERSONNELLES
+-----------------------
+Le logiciel ne conserve que le nom, le prénom, la classe et les vœux des
+élèves. Il n'envoie rien sur Internet. Pensez à supprimer le fichier
+donnees/forum.json (et donnees/sauvegardes/) quand le forum est terminé et
+que les documents ne sont plus utiles.
+
+
+6. EN CAS DE PROBLÈME
+---------------------
+- Le bouton « Choisir le dossier ForumMetiers » ne fait rien : votre
+  navigateur ne le permet pas (Firefox) ; utilisez « Exporter / Importer ».
+- Un fichier Excel ancien (.xls) ou LibreOffice (.ods) est refusé : ouvrez-le
+  et enregistrez-le au format .xlsx ou .csv.
+- La répartition est grisée : l'accueil indique en rouge ce qui manque
+  (« Bloquant »), par exemple des places insuffisantes sur un créneau.
+- Le navigateur demande de « Reprendre » à chaque ouverture : c'est normal,
+  il redemande l'autorisation d'accès au dossier par sécurité.

@@ -1,0 +1,2 @@
+﻿Les fichiers produits par le logiciel (modèles Excel, classeurs, CSV) arrivent dans ce dossier
+quand le logiciel est relié au dossier ForumMetiers (Edge ou Chrome).
